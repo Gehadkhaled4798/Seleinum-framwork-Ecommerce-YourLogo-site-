@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name=" IslamSuite">
+	<test name="Regression Test" preserve-order="true">
+		<classes>
+			<class name="Pages.Yourlogo_Ecommerce.RegisterTest"/>
+			<class name="Pages.Yourlogo_Ecommerce.LogInTest"/>
+			<class name="Pages.Yourlogo_Ecommerce.SendProductToFriendTest"/>
+		</classes>
+	</test>
+</suite> 

@@ -16,16 +16,20 @@ public class RegisterDataPage extends Utilit_Function {
 	private By State =By.id("id_state");
 	private By Country =By.id("id_country");
 	private By submit =By.id("submitAccount");
-	private By Signout=By.linkText("Sign out");
+	//private By Signout=By.linkText("Sign out");
+	private WebDriver driver;
+	
 	public RegisterDataPage(WebDriver div) {
 		super(div);
+		this.driver=div;
 	}
+	
 	public String RegisterPageOpened()
 	{
 		return driver.findElement(By.id("authentication")).getText();
 	}
 	
-	public void RegisteraiondataData(String Frist,String last,String passwd,String address,String city_,int stat
+	public YourAccountPage RegisteraiondataData(String Frist,String last,String passwd,String address,String city_,int stat
 			,String Pcode,int countr,String mobile,String Assignadr)
 	{
 		SetTextbox(FristName, Frist);
@@ -39,7 +43,9 @@ public class RegisterDataPage extends Utilit_Function {
 		SetTextbox(phone_mobile, mobile);
 		SetTextbox(Assignsdress, Assignadr);
 		ButtonclickOn(submit);
+		return new YourAccountPage(driver);
 	}
+	
 	private void selectstate(int index)
 	{
 		ButtonclickOn(State);
@@ -52,9 +58,5 @@ public class RegisterDataPage extends Utilit_Function {
 		Select choice= new Select(driver.findElement(Country));
 		choice.selectByIndex(index);
 	}
-	public void signout()
-	{
-		
-		ButtonclickOn(Signout);
-	}	
+	
 }

@@ -10,10 +10,12 @@ public class Utilit_Function {
 		
 		this.driver=driver;
 	}
+	
 	protected void SetTextbox(By element,String text)
 	{
 		driver.findElement(element).sendKeys(text);	
 	}
+	
 	protected void ButtonclickOn(By button)
 	{
 		driver.findElement(button).click();

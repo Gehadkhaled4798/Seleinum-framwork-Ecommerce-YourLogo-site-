@@ -16,7 +16,7 @@ public class ProductPage extends Utilit_Function {
 	private By friend_button=By.id("send_friend_button");
 	private By SuccessSend=By.cssSelector("div.fancybox-inner> p");
 	private By OkButton=By.cssSelector("div.fancybox-inner> p.submit> input");
-	
+	private WebDriver driver;
 	public ProductPage(WebDriver div,String Prodctname)
 	{
 		super(div);
@@ -24,6 +24,7 @@ public class ProductPage extends Utilit_Function {
 		P_name=Prodctname;
 		productElement=div.findElement(By.linkText(P_name));
 		productbutton=By.linkText(P_name);
+		this.driver=div;
 	}
 	
 	public void productClickToOpen()

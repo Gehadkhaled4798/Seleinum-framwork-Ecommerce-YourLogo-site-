@@ -9,28 +9,28 @@ public class AuthenticationPage extends Utilit_Function {
 	private By Username=By.id("email");
 	private By Passwordloc= By.id("passwd");
 	private By loginbutton=By.id("SubmitLogin");
-	private By Signout=By.linkText("Sign out");
+	//private By Signout=By.linkText("Sign out");
+	private WebDriver driver;
+	
 	public AuthenticationPage(WebDriver div)
 	{
 		super(div);
+		this.driver=div;
 	}
 
-	public void RegisterUser(String EAddress)
+	public RegisterDataPage RegisterUser(String EAddress)
 	{
 		SetTextbox(MailText, EAddress);
 		ButtonclickOn(CreateAccountButton);
+		return new RegisterDataPage(driver);
 	}
 	
-	public void UserLogin(String UserEmail,String Password)
+	public YourAccountPage UserLogin(String UserEmail,String Password)
 	{
 		SetTextbox(Username, UserEmail); 
 		SetTextbox(Passwordloc, Password);
 		ButtonclickOn(loginbutton);
+		return new YourAccountPage(driver);
 	}
-	public void signout()
-	{
-		
-		ButtonclickOn(Signout);
-	}	
 }
 
